@@ -12,7 +12,7 @@ void VideoPlayer::numberOfVideos() {
 }
 
 void VideoPlayer::showAllVideos() {
-    std::cout << "Here's a list of all videos:\n";
+    std::cout << "Here's a list of all videos:";
   for(auto i : mVideoLibrary.getVideos()){
 
     std::cout << i.getTitle() << " " << "(" << i.getVideoId() << ")";
@@ -34,7 +34,7 @@ void VideoPlayer::playVideo(const std::string& videoId) {
  
   for(auto i : mVideoLibrary.getVideos()){
     if(videoId.compare(i.getVideoId()) == 0){
-      std::cout << "Playing: " << i.getTitle()<<"\n";
+      std::cout << "Playing: " << i.getTitle();
       Mv.setCurrentVideo(i.getTitle());
       playStatus = true;
       exists =true;
@@ -45,7 +45,7 @@ void VideoPlayer::playVideo(const std::string& videoId) {
     }
   }
   if(exists == false){
-    std::cout << "Cannot play video. Video doesn't exists\n";
+    std::cout << "Cannot play video. Video doesn't exists";
   }
 
 }
@@ -56,7 +56,7 @@ void VideoPlayer::stopVideo() {
     std::cout << "Cannot stop video: No video is currently playing\n";
   }
   else{
-    std::cout << "Stopping video: " << this->getCurrentVideo() << "\n";
+    std::cout << "Stopping video: " << this->getCurrentVideo();
   }
 }
 
@@ -92,7 +92,7 @@ void VideoPlayer::pauseVideo() {
       std::cout << "Video already paused: "<< Mv.getCurrentVideo();
     }
     else{
-      std::cout << "Pausing video: " << Mv.getCurrentVideo() <<"\n";
+      std::cout << "Pausing video: " << Mv.getCurrentVideo();
     }
   }
 }
@@ -102,7 +102,7 @@ void VideoPlayer::continueVideo() {
     std::cout << "Continuing video: " << this->getCurrentVideo();
   }
   else{
-    std::cout << "Cannot continue video: Video is not paused.\n";
+    std::cout << "Cannot continue video: Video is not paused.";
   }
 }
 
@@ -171,7 +171,7 @@ void VideoPlayer::showAllPlaylists() {
 
     }
     else {
-        std::cout << "Showing all playlists:\n";
+        std::cout << "Showing all playlists: ";
         for (auto i : Vm1.playlistNames) {
             std::cout << i << "\n";
 
@@ -185,7 +185,7 @@ void VideoPlayer::showPlaylist(const std::string& playlistName) {
 
     for (auto i : Vm1.Available_playlist) {
         if (Vm1.Available_playlist.find(playlistName) != Vm1.Available_playlist.end()) {
-            std::cout << "Showing playlist: " << playlistName<<"\n";
+            std::cout << "Showing playlist: " << playlistName;
             for (auto j : i.second) {
                 std::cout << j;
             }
@@ -206,7 +206,7 @@ void VideoPlayer::removeFromPlaylist(const std::string& playlistName,
 
     for (auto i : Vm1.Available_playlist) {
         if (Vm1.Available_playlist.find(playlistName) != Vm1.Available_playlist.end()) {
-            std::cout << "Showing playlist: " << playlistName << "\n";
+            std::cout << "Showing playlist: " << playlistName;
             for (auto j : i.second) {
                 if (j == Vm1.playList_Song) {
                     Vm1.Available_playlist.erase(j);
