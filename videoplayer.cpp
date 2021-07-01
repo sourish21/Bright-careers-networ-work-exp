@@ -107,7 +107,13 @@ void VideoPlayer::continueVideo() {
 }
 
 void VideoPlayer::showPlaying() {
-  std::cout << "showPlaying needs implementation" << std::endl;
+    if (playStatus == true) {
+        std::cout << "Currently playing: " << this->CurrentSong;
+    }
+
+    else {
+        std::cout << "No video is currently playing.";
+    }
 }
 
 void VideoPlayer::createPlaylist(const std::string& playlistName) {
