@@ -181,6 +181,8 @@ void VideoPlayer::showAllPlaylists() {
 
 void VideoPlayer::showPlaylist(const std::string& playlistName) {
 
+    }
+
     for (auto i : Vm1.Available_playlist) {
         if (Vm1.Available_playlist.find(playlistName) != Vm1.Available_playlist.end()) {
             std::cout << "Showing playlist: " << playlistName<<"\n";
@@ -195,7 +197,25 @@ void VideoPlayer::showPlaylist(const std::string& playlistName) {
 
 void VideoPlayer::removeFromPlaylist(const std::string& playlistName,
                                      const std::string& videoId) {
-  std::cout << "removeFromPlaylist needs implementation" << std::endl;
+    for (auto k : mVideoLibrary.getVideos()) {
+        if (videoId == k.getVideoId()) {
+            Vm1.playList_Song == k.getTitle();
+            vid_exists = true;
+        }
+
+
+    for (auto i : Vm1.Available_playlist) {
+        if (Vm1.Available_playlist.find(playlistName) != Vm1.Available_playlist.end()) {
+            std::cout << "Showing playlist: " << playlistName << "\n";
+            for (auto j : i.second) {
+                if (j == Vm1.playList_Song) {
+                    Vm1.Available_playlist.erase(j);
+                }
+            }
+
+        }
+    }
+  
 }
 
 void VideoPlayer::clearPlaylist(const std::string& playlistName) {
